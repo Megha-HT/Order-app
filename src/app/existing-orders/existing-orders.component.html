@@ -1,0 +1,24 @@
+
+<div class="w-80">
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col"></th>
+			<th scope="col"><h1>Existing Orders</h1></th>
+			<th scope="col"><h1>Details</h1></th>
+		</tr>
+	</thead>
+	<tbody>
+			<tr *ngFor="let order of existingOrders;index as i">
+				<th scope="row"><h3>{{ i + 1 }}</h3></th>
+				<td>
+					<h3>Order {{ order.id}}</h3>
+				</td>
+				<td>
+          <!-- <button mat-raised-button ></button> -->
+          <button type="button" class="btn btn-success" [routerLink]="['/order',order.id]">View details</button></td>
+			</tr>
+	</tbody>
+</table>
+
+</div>

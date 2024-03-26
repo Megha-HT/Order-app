@@ -1,0 +1,14 @@
+mat-grid-tile {
+    background: #9f4e1078
+    /* width: calc(25.3333% - 0.666667px) !important; */
+  }
+
+mat-card{
+    padding: 10px 25px;
+}
+
+.w-80{
+    width: 80%;
+    margin-left: auto;
+    margin-right:auto;
+}

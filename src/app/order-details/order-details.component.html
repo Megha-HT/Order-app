@@ -1,0 +1,43 @@
+<div class="w-80">
+    <h1>Order details</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product ID</th>
+                <th scope="col">Unit Price</th>
+                <th scope="col">Quantity &nbsp;&nbsp;&nbsp; <span class="padding-50">Total Price</span></th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let item of order.items;index as i">
+                <th scope="row">
+                    <h3>{{ i + 1 }}</h3>
+                </th>
+                <td>
+                    <h3> {{item['productId']}}</h3>
+                </td>
+                
+                <td>
+                    <h3>{{item['unitPrice']}}</h3>
+                </td>
+                <!-- <td>
+                    <h3> <label>{{ item['unitPrice'] }} </label></h3>
+                </td> -->
+                <td style="width: 35%;">
+                    <counter [count]="item.quantity" [price]="item.unitPrice" (update)="countChange($event, item.unitPrice)"></counter>
+                </td>
+                <td>
+                    
+                    <button type="button" class="btn btn-light" (click)="deleteItem(item.productId)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button type="button" class="btn btn-primary mr-10 me-md-2" (click)="navigateToProductsView(order.id)">Add Product</button>
+    <button type="button" class="btn btn-primary mr-10" (click)="placeOrder(order.id)">Place order</button>
+</div>
+</div>
